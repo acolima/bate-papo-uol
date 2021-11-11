@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+main{
+    width: 375px;
+    height: 507px;
+    
+    background-color: #F3F3F3;
+}
+
+header{
+    width: 375px;
+    height: 80px;
+
+    padding: 0 20px; 
+
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width: 75px;
+}
+
+header ion-icon{
+    width: 45px;
+    height: 45px;
+}
+
+
+.send-message{
+    width: 375px;
+    height: 80px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.send-message ion-icon{
+    width: 26px;
+    height: 26px;
+
+    padding-right: 18px;
+}
+
+.send-message input{
+    border: none;
+
+    padding-left: 17px;
+}
