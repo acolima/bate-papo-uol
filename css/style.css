@@ -11,6 +11,8 @@ main{
     height: 507px;
     
     background-color: #F3F3F3;
+
+    position: relative;
 }
 
 header{
@@ -18,7 +20,6 @@ header{
     height: 80px;
 
     padding: 0 20px; 
-
     
     display: flex;
     justify-content: space-between;
@@ -34,10 +35,49 @@ header ion-icon{
     height: 45px;
 }
 
+.messages{
+    height: 461px;
+    width: 100%;
+
+    overflow: hidden;
+    overflow-y: scroll;
+
+    position: absolute;
+    top: 26px;
+
+}
+
+.element{
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 4px;
+    padding: 8px 20px;
+}
+
+p{
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.status{
+    background-color: #DCDCDC;
+}
+
+.message{
+    background-color: #ffffff;
+}
+
+.private-message{
+    background-color: #FFDEDE;
+
+}
+
 
 .send-message{
     width: 375px;
     height: 80px;
+
 
     display: flex;
     justify-content: space-between;
@@ -55,4 +95,6 @@ header ion-icon{
     border: none;
 
     padding-left: 17px;
+
+    outline: none;
 }
