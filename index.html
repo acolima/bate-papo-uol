@@ -19,9 +19,11 @@
         <ul class="messages"></ul>
     </main>
 
-    <div class="send-message">
+    <div class="write-message">
         <input placeholder="Escreva aqui..." type="text">
-        <ion-icon name="paper-plane-outline"></ion-icon>
+        <button class="send-message" onclick="sendMessage()" data-identifier="send-message">
+            <ion-icon name="paper-plane-outline"></ion-icon>
+        </button>
     </div>
 
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
