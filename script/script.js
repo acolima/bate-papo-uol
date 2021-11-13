@@ -62,11 +62,24 @@ function loadMessages(response) {
 function checkUserConected() {
     const promise = axios.post("https://mock-api.driven.com.br/api/v4/uol/status", {name: username});
 
-    promise.then((response) => console.log(response.data));
     promise.catch((error) => console.log(error.response.data.message));
 }
 
 // Botão para enviar mensagens
 function sendMessage() {
+    let messageInput = document.querySelector(".text-message");
+    
+    const message = {
+        from: username,
+        to: "Todos",
+        text: messageInput.value,
+        type: "message"
+    }
+    messageInput.value = "";
+
+    const promise = axios.post("https://mock-api.driven.com.br/api/v4/uol/messages", message)
+    
+    promise.then(loadPage);
+    promise.catch((error) => window.location.reload());
 }
 

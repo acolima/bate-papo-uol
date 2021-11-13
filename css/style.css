@@ -13,15 +13,15 @@ main{
     width: 375px;
     height: 507px;
     
-    background-color: #F3F3F3;
-
     overflow: hidden;
     overflow-y: scroll;
+
+    background-color: #F3F3F3;
 }
 
-/*main::-webkit-scrollbar {
+main::-webkit-scrollbar {
     display: none;
-}*/
+}
 
 header{
     width: 375px;
@@ -75,7 +75,6 @@ p{
 
 .private-message{
     background-color: #FFDEDE;
-
 }
 
 .send-message {
@@ -85,6 +84,8 @@ p{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    background-color: #FFFFFF;
 }
 
 .send-message button{
@@ -104,11 +105,17 @@ p{
     height: 26px;
 }
 
-.send-message input{
+.text-message{
     all: unset;
     box-sizing: border-box;
 
+    width: 300px;
+    height: 25px;
+
+    overflow: hidden;
+    
     padding-left: 17px;
 
     font-size: 18px;
+    word-break: break-word; 
 }
