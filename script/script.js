@@ -17,13 +17,10 @@ function userError(error) {
 
 verifyUserName();
 setInterval(checkUserConected, 5000, username);
-
-function loadPage(response) {
-    setInterval(reloadPage, 3000);
-}
+setInterval(loadPage, 3000);
 
 // Carrega página 
-function reloadPage() {
+function loadPage(response) {
     const promise = axios.get("https://mock-api.driven.com.br/api/v4/uol/messages");
 
     promise.then(loadMessages);
@@ -40,20 +37,20 @@ function loadMessages(response) {
         let message = messages[i];
         if(message.type === "status"){
             messageBox.innerHTML += `
-                <li class="element status" data-identifier="message">
-                    <p>${message.time} ${message.from} ${message.text}</p>
+                <li class="status" data-identifier="message">
+                    <p><span class="time">(${message.time})</span> <span class="bold">${message.from}</span> ${message.text}</p>
                 </li>`
         }
         else if(message.type === "message"){
             messageBox.innerHTML += `
-                <li class="element message" data-identifier="message">
-                    <p>${message.time} ${message.from} para ${message.to}: ${message.text}</p>
+                <li class="message" data-identifier="message">
+                    <p><span class="time">(${message.time})</span> <span class="bold">${message.from}</span> para </span> <span class="bold">${message.to}</span>: ${message.text}</p>
                 </li>`
         }
         else if(message.type === "private-message"){
             messageBox.innerHTML += `
-                <li class="element private-message" data-identifier="message">
-                    <p>${message.time} ${message.from} reservadamente para ${message.to}: ${message.text}</p>
+                <li class="private-message" data-identifier="message">
+                    <p><span class="time">(${message.time})</span> <span class="bold">${message.from}</span> reservadamente para ${message.to}: ${message.text}</p>
                 </li>`
         }
     }
@@ -65,16 +62,8 @@ function loadMessages(response) {
 function checkUserConected() {
     const promise = axios.post("https://mock-api.driven.com.br/api/v4/uol/status", {name: username});
 
-    promise.then(usuarioOnline);
-    promise.catch(usuarioOffline);
-}
-
-function usuarioOnline(response){
-    console.log("ainda online");
-}
-
-function usuarioOffline(error) {
-    console.log("deu ruim");
+    promise.then((response) => console.log(response.data));
+    promise.catch((error) => console.log(error.response.data.message));
 }
 
 // Botão para enviar mensagens
