@@ -12,18 +12,49 @@
 <body>
     <header>
         <img src="assets/logo.jpg" alt="Logo Bate-Papo Uol" >
-        <ion-icon name="people"></ion-icon>
+        <ion-icon name="people" onclick="showParticipants()"></ion-icon>
     </header>
 
     <main>
-        <ul class="messages"></ul>
+        <ul class="messages" ></ul>
     </main>
 
+    <aside class="hide">
+        <div><p>Escolha um contato <br> para enviar mensagem: </p></div>
+        <ul class="participants-list"></ul>
+        <ul class="visibility">
+            <p>Escolha a visibilidade:</p>
+            <li class="type" onclick="chooseVisibility(this, 'message')">
+                <span>
+                    <ion-icon name="lock-open"></ion-icon>
+                    <p>Público</p>
+                </span>
+                <span class="check">
+                    <ion-icon name="checkmark"></ion-icon>
+                </span>
+            </li>
+            <li class="type" onclick="chooseVisibility(this, 'private_message')">
+                <span >
+                    <ion-icon name="lock-closed"></ion-icon>
+                    <p>Reservadamente</p>
+                </span>
+                <span class="check">
+                    <ion-icon name="checkmark"></ion-icon>
+                </span>
+            </li>
+        </ul>
+    </aside>
+
+    <div class="screen hide" onclick="showParticipants()"></div>
+
     <div class="send-message">
-        <textarea class="text-message" placeholder="Escreva aqui..."></textarea>
-        <button onclick="sendMessage()" data-identifier="send-message">
-            <ion-icon name="paper-plane-outline"></ion-icon>
-        </button>
+        <span>
+            <textarea class="text-message" placeholder="Escreva aqui..."></textarea>
+            <button onclick="sendMessage()" data-identifier="send-message">
+                <ion-icon name="paper-plane-outline"></ion-icon>
+            </button>
+        </span>
+        <p class="text-private"></p>
     </div>
 
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
