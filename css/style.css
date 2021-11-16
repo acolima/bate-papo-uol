@@ -2,6 +2,14 @@
     box-sizing: border-box;
 }
 
+.send-message button,
+.message-text,
+.login-screen input,
+.btn-login{
+    all: unset;
+    box-sizing: border-box;
+}
+
 body{
     width: 375px;
 
@@ -29,6 +37,62 @@ header img{
 header ion-icon{
     width: 45px;
     height: 45px;
+}
+
+.login-screen{
+    background-color: #fff;
+    width: 375px;
+    height: 667px;
+
+    position: absolute;
+    top: 0;
+    z-index: 3;
+
+    padding-top: 72px;
+
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 94px;
+
+    transition: ease-in-out;
+}
+
+.login-screen img,
+.loading img{
+    height: 92px;
+    width: 130px;
+}
+
+.login-screen input{
+    height: 54px;
+    width: 261px;
+    
+    border-radius: 4px;
+    border: 1px solid #d7d7d7;
+    
+    text-align: center;
+}
+
+.login-screen div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-login{
+    height: 45px;
+    width: 109px;
+    
+    border-radius: 9px;
+    
+    background-color:#E7E7E7;
+
+    text-align: center;
+    color: #696969;
+
+    cursor: pointer;
 }
 
 main{
@@ -79,32 +143,29 @@ p{
     background-color: #FFDEDE;
 }
 
-.screen{
-    width: 375px;
-    height: 667px;
-
-    background-color: rgba(0, 0, 0, 0.6);
-
+aside{
     position: absolute;
     top: 0;
     z-index: 1;
+
+    display: flex;
 }
 
-aside{
-    width: 259px;
+.hide-sidebar{
+    width: 117px;
     height: 667px;
 
-    background-color: #ffffff;
-
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-
-    transition: ease-in-out;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-aside div:first-child p{
+.show-sidebar{
+    width: 259px;
+    height: 667px;  
+
+    background-color: #fff;
+}
+
+.show-sidebar div:first-child p{
     text-align: center;
     font-size: 16px;
     font-weight: 700;
@@ -140,6 +201,7 @@ aside div:first-child p{
 
 .person ion-icon{
     font-size: 25px;
+    flex-shrink: 0;
 }
 
 .visibility ion-icon{
@@ -176,7 +238,7 @@ aside div:first-child p{
 
 .send-message {
     width: 375px;
-    height: 80px;
+    height: 70px;
 
     display: flex;
     flex-direction: column;
@@ -184,16 +246,13 @@ aside div:first-child p{
     padding-top: 20px;
 }
 
-.send-message span{
+.send-message div{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .send-message button{
-    all: unset;
-    box-sizing: border-box;
-
     width: 26px;
     height: 26px;
 
@@ -207,10 +266,7 @@ aside div:first-child p{
     height: 26px;
 }
 
-.text-message{
-    all: unset;
-    box-sizing: border-box;
-
+.message-text{
     width: 300px;
     height: 25px;
 
@@ -222,7 +278,7 @@ aside div:first-child p{
     word-break: break-word; 
 }
 
-.text-message::placeholder{
+.message-text::placeholder{
     color: black;
 }
 
@@ -233,6 +289,9 @@ aside div:first-child p{
     color: #505050;
 
     padding-left: 17px;
+
+    overflow:hidden;
+    overflow: ellipse;
 }
 
 .participant.selected .show,

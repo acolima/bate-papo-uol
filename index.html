@@ -2,9 +2,11 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bate-Papo UOL</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" sizes="192x192" href="./assets/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
@@ -15,49 +17,63 @@
         <ion-icon name="people" onclick="showParticipants()"></ion-icon>
     </header>
 
+    <div class="login-screen ">
+        <img src="assets/logo.jpg" alt="Logo Bate-Papo Uol" >
+        <div class="login">
+            <p class="hide">Esse nome de usuário já está em uso. Tente novamente</p>
+            <input type="text" placeholder="Digite seu nome" onkeyup="sendEnter(event, this)" data-identifier="enter-name">
+            <button class="btn-login" onclick="verifyUserName()" data-identifier="start">
+                Entrar
+            </button>
+        </div>
+    </div>
+    
     <main>
-        <ul class="messages" ></ul>
+        <ul class="messages"></ul>
     </main>
 
     <aside class="hide">
-        <div><p>Escolha um contato <br> para enviar mensagem: </p></div>
-        <ul class="participants-list"></ul>
-        <ul class="visibility">
-            <p>Escolha a visibilidade:</p>
-            <li class="type" onclick="chooseVisibility(this, 'message')">
-                <span>
-                    <ion-icon name="lock-open"></ion-icon>
-                    <p>Público</p>
-                </span>
-                <span class="check">
-                    <ion-icon name="checkmark"></ion-icon>
-                </span>
-            </li>
-            <li class="type" onclick="chooseVisibility(this, 'private_message')">
-                <span >
-                    <ion-icon name="lock-closed"></ion-icon>
-                    <p>Reservadamente</p>
-                </span>
-                <span class="check">
-                    <ion-icon name="checkmark"></ion-icon>
-                </span>
-            </li>
-        </ul>
+        <div class="hide-sidebar" onclick="showParticipants()"></div>
+        <div class="show-sidebar">
+            <div><p>Escolha um contato <br> para enviar mensagem: </p></div>
+            <ul class="participants-list"></ul>
+            <ul class="visibility">
+                <p>Escolha a visibilidade:</p>
+                <li class="type selected" onclick="chooseVisibility(this, 'message')" data-identifier="visibility">
+                    <span>
+                        <ion-icon name="lock-open"></ion-icon>
+                        <p>Público</p>
+                    </span>
+                    <span class="check show">
+                        <ion-icon name="checkmark"></ion-icon>
+                    </span>
+                </li>
+                <li class="type" onclick="chooseVisibility(this, 'private_message')" data-identifier="visibility">
+                    <span >
+                        <ion-icon name="lock-closed"></ion-icon>
+                        <p>Reservadamente</p>
+                    </span>
+                    <span class="check">
+                        <ion-icon name="checkmark"></ion-icon>
+                    </span>
+                </li>
+            </ul>
+        </div>
     </aside>
 
-    <div class="screen hide" onclick="showParticipants()"></div>
 
     <div class="send-message">
-        <span>
-            <textarea class="text-message" placeholder="Escreva aqui..."></textarea>
+        <div>
+            <textarea class="message-text" placeholder="Escreva aqui..." onkeyup="sendEnter(event, this)"></textarea >
             <button onclick="sendMessage()" data-identifier="send-message">
                 <ion-icon name="paper-plane-outline"></ion-icon>
             </button>
-        </span>
+        </div>
         <p class="text-private"></p>
     </div>
 
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>    
     <script src=https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js></script>
     <script src="script/script.js"></script>
 </body>
